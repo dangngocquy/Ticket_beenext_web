@@ -8,13 +8,13 @@ Hệ thống quản lý quy trình sự cố (Nội bộ)
 các dữ liệu giao tiếp real-time
 
 ## Cài đặt
-1. Sao chép repository.
-2. Cài đặt dependencies cho backend:
+
+1. Cài đặt dependencies cho backend:
    ```
    cd backend
    npm install
    ```
-3. Cài đặt dependencies cho frontend:
+2. Cài đặt dependencies cho frontend:
    ```
    cd ../frontend
    npm install
