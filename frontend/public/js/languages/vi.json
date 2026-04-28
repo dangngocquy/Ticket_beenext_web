@@ -1,0 +1,31 @@
+{
+  "print": {
+    "title": "PHIEU XU LY KY THUAT",
+    "company": "CONG TY CO PHAN THUONG MAI VA DICH VU VUNG TROI THONG TIN",
+    "companyAddress": "Duong so 53, khu Tan Quy Dong, P. Tan Hung, TP. HCM",
+    "companyPhone": "(028)3838-9999",
+    "companyFax": "(028)3838-9833",
+    "companyEmail": "customer.care@beesnext.com",
+    "address": "Dia chi",
+    "phone": "Dien thoai",
+    "fax": "Fax",
+    "email": "Email",
+    "ticketNo": "So phieu",
+    "date": "Ngay",
+    "customer": "Khach hang",
+    "location": "Dia chi",
+    "technician": "Nguoi thuc hien",
+    "contact": "Nguoi lien he",
+    "serviceFee": "Phi dich vu",
+    "workContent": "NOI DUNG CONG VIEC",
+    "status": "1. Tinh trang",
+    "solution": "2. Phuong an xu ly",
+    "result": "3. Ket qua",
+    "ratingNote": "Nham nang cao chat luong dich vu va ho tro, khach hang vui long danh dau vao thang nhan xet ben duoi. Xin chan thanh cam on quy khach!",
+    "ratingLow": "Khong hai long",
+    "ratingHigh": "Rat hai long",
+    "signature1": "Xac nhan cua khach hang",
+    "signature2": "Ky thuat vien",
+    "signatureSub": "(Ky ten - Ghi ro ho ten)"
+  }
+}

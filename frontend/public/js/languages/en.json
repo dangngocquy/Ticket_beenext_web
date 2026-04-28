@@ -1,0 +1,31 @@
+{
+  "print": {
+    "title": "TECHNICAL SERVICE TICKET",
+    "company": "INFORMATICS SKYTRADING SERVICES JOINT STOCK COMPANY",
+    "companyAddress": "44 Street No. 10, Him Lam Urban Area, Tan Hung Ward, District 7, Ho Chi Minh City",
+    "companyPhone": "(028)3838-9999",
+    "companyFax": "(028)3838-9833",
+    "companyEmail": "customer.care@beesnext.com",
+    "address": "Address",
+    "phone": "Phone",
+    "fax": "Fax",
+    "email": "Email",
+    "ticketNo": "Ticket No",
+    "date": "Date",
+    "customer": "Customer",
+    "location": "Location",
+    "technician": "Technician",
+    "contact": "Contact Person",
+    "serviceFee": "Service Fee",
+    "workContent": "WORK CONTENT",
+    "status": "1. Status",
+    "solution": "2. Solution",
+    "result": "3. Result",
+    "ratingNote": "To improve our service quality and support, please rate your experience below. Thank you!",
+    "ratingLow": "Not Satisfied",
+    "ratingHigh": "Very Satisfied",
+    "signature1": "Customer Confirmation",
+    "signature2": "Technician",
+    "signatureSub": "(Signature - Full Name)"
+  }
+}

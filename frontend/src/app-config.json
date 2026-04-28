@@ -1,0 +1,47 @@
+{
+  "companyName": "Bee-Next",
+  "companySub": "I-SKY Joint Stock Company (Bee-Next Retail Chain)",
+  "address": "Đường số 53, khu Tân Quy Đông, P. Tân Hưng, TP. HCM",
+  "phone": "(028)3838-9999",
+  "fax": "(028)3838-9833",
+  "email": "customer.care@beesnext.com",
+  "backend": {
+    "backendUrl": "http://beesnext.com:5000",
+    "wsUrl": "http://beesnext.com:5000",
+    "apiUsername": "password",
+    "apiPassword": "password"
+  },
+  "print": {
+    "title": "PHIẾU XỬ LÝ KỸ THUẬT",
+    "company": "CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DỊCH VỤ VÙNG TRỜI THÔNG TIN",
+    "companyAddress": "Đường số 53, khu Tân Quy Đông, P. Tân Hưng, TP. HCM",
+    "companyPhone": "(028)3838-9999",
+    "companyFax": "(028)3838-9833",
+    "companyEmail": "customer.care@beesnext.com",
+    "ticketNo": "Số phiếu",
+    "date": "Ngày",
+    "customer": "Khách hàng",
+    "location": "Địa chỉ",
+    "technician": "Người thực hiện",
+    "contact": "Người liên hệ",
+    "serviceFee": "Phí dịch vụ",
+    "workContent": "NỘI DUNG CÔNG VIỆC",
+    "status": "1. Tình trạng",
+    "solution": "2. Phương án xử lý",
+    "result": "3. Kết quả",
+    "ratingNote": "Nhằm nâng cao chất lượng dịch vụ hỗ trợ, khách hàng vui lòng đánh dấu vào thang nhận xét bên dưới. Xin chân thành cảm ơn quý khách!",
+    "ratingLow": "Không hài lòng",
+    "ratingHigh": "Rất hài lòng",
+    "signature1": "Xác nhận của khách hàng",
+    "signature2": "Kỹ thuật viên",
+    "signatureSub": "(Ký tên - Ghi rõ họ tên)"
+  },
+  "ui": {
+    "permissions": {
+      "noneLabel": "Không có quyền",
+      "editLabel": "Chỉnh sửa",
+      "manageLabel": "Quản lý",
+      "customerLabel": "Khách hàng"
+    }
+  }
+}

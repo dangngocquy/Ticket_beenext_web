@@ -1,0 +1,1759 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oxygen:wght@300;400;700&display=swap');
+
+
+html {
+  overflow: hidden;
+}
+
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-padding: 12mm;
+  --border: 1px solid #000;
+  --font-main: "Be Vietnam Pro", serif;
+}
+
+:where(.css-gig0xw).ant-popover-placement-bottomRight>.ant-popover-arrow {
+  right: 10px !important;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: linear-gradient(180deg, #f7faff 0%, #eef3fb 100%);
+  overflow: hidden;
+  height: 100vh;
+}
+
+#root {
+  /* height: 100vh; */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Mobile login - prevent scroll, fit in viewport */
+@media (max-width: 768px) {
+  #root>div[style*="minHeight: 100vh"] {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+  }
+
+  #root>div[style*="minHeight: 100vh"]>* {
+    width: 100% !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  /* Login page rows and columns */
+  .ant-row[gutter] {
+    width: 100% !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  .ant-col {
+    overflow: hidden !important;
+  }
+
+  /* Login card max height - only allow scroll within card */
+  .ant-card {
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Hide scrollbar */
+  .ant-card::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .ant-card {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  /* Ensure rows fit properly */
+  .ant-row {
+    width: 100% !important;
+  }
+
+  /* Login form item spacing */
+  .ant-form-item {
+    margin-bottom: 12px !important;
+  }
+
+  /* Reduce title size on mobile */
+  .ant-typography-title {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Reduce card download section spacing */
+  .ant-card>div {
+    margin-bottom: 12px !important;
+  }
+}
+
+* {
+  font-family: var(--font-main) !important;
+}
+
+.ant-layout-sider-trigger {
+  background-color: #ed3237 !important;
+  color: #fff !important;
+}
+
+/* Sider user info section */
+.sider-user-info {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  min-height: 70px;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.user-details {
+  text-align: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 13px;
+  color: #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 2px;
+}
+
+.user-department {
+  font-size: 12px;
+  color: #666;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Đảm bảo tất cả element con tuân theo border-radius */
+html>body>#root,
+html>body>#root>* {
+  border-radius: inherit;
+}
+
+/* Account / Customer toolbar */
+.panel-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Đảm bảo custom-title-bar và các element chính tuân theo border-radius */
+.custom-title-bar {
+  overflow: hidden;
+}
+
+/* Đảm bảo không có element nào vượt ra ngoài border-radius khi hover */
+html>body>#root>*:hover {
+  border-radius: inherit;
+}
+
+/* Đảm bảo tất cả element con không vượt ra ngoài border-radius */
+html,
+body {
+  contain: layout style paint;
+}
+
+/* Đảm bảo các element có position absolute/fixed không vượt ra ngoài */
+html>body>#root {
+  isolation: isolate;
+}
+
+/* Đảm bảo các element có box-shadow khi hover không vượt ra ngoài */
+html>body>#root * {
+  box-sizing: border-box;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #ed3237;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(24, 144, 255, 0.08);
+}
+
+.form-panel {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-panel .ant-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-panel .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.ant-tabs-content-holder {
+  /* allow form tabs to scroll when content is long */
+  overflow: auto !important;
+  height: 100%;
+}
+
+.ant-tabs-tabpane {
+  height: 100%;
+  overflow: auto;
+}
+
+.editor-box {
+  width: 100%;
+}
+
+.ck-editor,
+.ck-editor__main,
+.ck-editor__editable,
+.ck-editor__editable_inline {
+  width: 100% !important;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.preview-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px;
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* History list actions - Desktop */
+.history-list-actions {
+  min-width: 80px !important;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.preview-wrapper-modal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  /* overflow: hidden; */
+  height: 100%;
+  width: 100%;
+}
+
+.preview-wrapper-modal .print-page {
+  /* transform: scale(0.4); */
+  transform-origin: top center;
+  max-height: calc(100vh - 80px);
+  overflow: visible;
+  margin-bottom: 0;
+}
+
+.print-container {
+  display: none;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 100%;
+}
+
+.print-page {
+  width: var(--page-width);
+  min-height: var(--page-height);
+  max-height: var(--page-height);
+  background: #fff;
+  color: #000;
+  padding: var(--page-padding);
+  box-sizing: border-box;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: var(--font-main) !important;
+  overflow: hidden;
+}
+
+/* Đảm bảo các bảng có thể mở rộng và cuộn ngang khi nội dung quá dài */
+.print-page .info-table,
+.print-page .section-table {
+  width: 100%;
+  min-width: fit-content;
+}
+
+/* Đảm bảo các phần tử có nowrap không bị wrap và có thể cuộn ngang */
+.print-page .info-table .label,
+.print-page .section-table th {
+  white-space: nowrap !important;
+  overflow: visible;
+}
+
+.print-page,
+.print-page * {
+  font-family: var(--font-main) !important;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.logo {
+  height: 35px;
+  object-fit: contain;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.header-company {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  min-width: 0;
+  padding: 0 12px;
+  max-width: 100%;
+}
+
+.header-company .company-name-main {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #000;
+  margin-bottom: 3px;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: justify;
+  text-align-last: center;
+  letter-spacing: 0.1px;
+  width: 100%;
+}
+
+.header-company .company-name-sub {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #333;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: justify;
+  text-align-last: center;
+  width: 100%;
+}
+
+.company-info {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.title {
+  text-align: center;
+  margin: 4px 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.subtitle .company-info {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.subtitle .company-info>div {
+  margin-bottom: 3px;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  font-size: 13px;
+  table-layout: auto;
+}
+
+.info-table td {
+  padding: 8px 10px;
+  text-indent: 0;
+  vertical-align: top;
+  border: var(--border);
+}
+
+.info-table td:not(.label) {
+  word-break: break-word;
+  white-space: normal;
+  text-align: left;
+  line-height: 1.3;
+}
+
+.info-table .label {
+  width: 140px;
+  min-width: 140px;
+  font-weight: bold;
+  white-space: nowrap !important;
+  vertical-align: top;
+  padding-right: 4px;
+  overflow: visible;
+}
+
+/* Ensure info table cells show borders in print and screen, and inner HTML doesn't add extra margins */
+.info-table td>div,
+.section-table td>div,
+.info-table td>p,
+.section-table td>p {
+  margin: 0;
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Các trường dài chiếm toàn bộ chiều rộng */
+.info-table td[colspan="3"] {
+  width: auto;
+  max-width: 100%;
+}
+
+/* Đảm bảo "Người thực hiện" và "Người liên hệ" chia đôi - dòng có 4 cột */
+.info-table tr td:nth-child(1).label+td:not(.label)+td.label+td:not(.label) {
+  width: auto;
+}
+
+.info-table tr td:nth-child(1).label+td:not(.label) {
+  width: calc(50% - 70px);
+  padding-right: 20px;
+}
+
+.info-table tr td:nth-child(3).label {
+  width: 140px;
+}
+
+.info-table tr td:nth-child(4):not(.label) {
+  width: calc(50% - 70px);
+}
+
+.section-title {
+  font-weight: bold;
+  margin: 8px 0 4px;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.section-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.section-table td,
+.section-table th {
+  border: var(--border);
+  padding: 8px;
+  vertical-align: top;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-indent: 0;
+  text-align: left;
+  font-size: 13px;
+}
+
+.section-table th {
+  width: 120px;
+  min-width: 120px;
+  text-align: left;
+  white-space: nowrap !important;
+  padding-right: 12px;
+  overflow: visible;
+}
+
+.section-table td {
+  line-height: 1.6;
+  text-align: left;
+  padding-left: 12px;
+}
+
+.result-row {
+  height: 80px;
+}
+
+.rating-row {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.rating-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border: var(--border);
+}
+
+.rating-cell {
+  border-left: var(--border);
+  text-align: center;
+  padding: 8px 0;
+}
+
+.rating-cell:first-child {
+  border-left: none;
+}
+
+.signature {
+  margin-top: 20px;
+  padding-top: 0;
+  padding-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  text-align: center;
+  font-size: 13px;
+  min-height: 80px;
+  width: 100%;
+  line-height: 1.4;
+}
+
+.signature>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.muted {
+  color: #666;
+  font-size: 13px;
+  margin-top: 4px;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.footer-date {
+  position: absolute;
+  bottom: 10mm;
+  right: 12mm;
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+}
+
+.history-list-item:hover {
+  border-color: #ed3237 !important;
+  box-shadow: 0 2px 8px rgba(237, 50, 55, 0.15);
+  transform: translateY(-1px);
+}
+
+.history-list-item .ant-list-item-action {
+  margin-left: 16px;
+}
+
+.history-list-item-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.history-list-item-content>.ant-checkbox-wrapper {
+  flex: 0 0 auto;
+  margin-top: 4px;
+}
+
+.history-list-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  width: auto;
+  min-width: 0;
+}
+
+.history-list-item-actions .ant-btn {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .history-list-item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .history-list-item-content>.ant-checkbox-wrapper {
+    width: auto;
+  }
+
+  .history-list-item-content>div {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .history-list-item-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    justify-content: stretch;
+    width: 100%;
+  }
+
+  .history-list-item-actions .ant-btn {
+    width: 100%;
+  }
+}
+
+.history-list-item .ant-list-item-action>li {
+  padding: 0 4px;
+}
+
+/* Table scroll wrapper */
+.table-scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.table-scroll-wrapper table {
+  min-width: 100%;
+}
+
+/* Incident form actions - hidden on desktop, shown on mobile */
+.incident-form-actions {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  #root {
+    overflow-x: hidden;
+  }
+
+  .layout {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .panel {
+    padding: 0;
+  }
+
+  .form-panel {
+    padding: 8px;
+  }
+
+  .form-panel .ant-form-item {
+    margin-bottom: 12px;
+  }
+
+  .ant-typography h4 {
+    font-size: 18px !important;
+  }
+
+  .ant-typography h5 {
+    font-size: 16px !important;
+  }
+
+  .ant-form-item-label>label {
+    font-size: 13px;
+  }
+
+  .ant-input,
+  .ant-picker,
+  .ant-select-selector {
+    font-size: 14px;
+  }
+
+  .history-list-item {
+    padding: 12px !important;
+  }
+
+  .history-list-item .ant-list-item-action {
+    margin-left: 8px;
+  }
+
+  /* Table responsive */
+  .table-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+
+  .panel-search {
+    width: 100% !important;
+    max-width: 400px;
+    min-width: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .responsive-table .ant-table {
+    min-width: 100% !important;
+  }
+
+  .settings-language-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Incident form actions - show on mobile */
+  .incident-form-actions {
+    display: block !important;
+    margin-top: 16px;
+  }
+
+  .incident-form-actions .ant-btn {
+    flex: 0 0 calc(50% - 4px);
+  }
+
+  /* Form grid responsive */
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+
+  /* Input Search responsive */
+  .ant-input-search {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* DatePicker Range responsive */
+  .ant-picker-range {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Select responsive */
+  .ant-select {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Modal responsive */
+  .ant-modal {
+    max-width: 95vw !important;
+    margin: 10px auto;
+  }
+
+  .ant-modal-body {
+    padding: 12px;
+  }
+
+  /* Drawer responsive */
+  .ant-drawer {
+    width: 100% !important;
+    max-width: 100vw;
+  }
+
+  /* Tabs responsive */
+  .ant-tabs {
+    font-size: 13px;
+  }
+
+  .ant-tabs-tab {
+    padding: 8px 12px;
+  }
+
+  /* Header responsive */
+  .preview-wrapper-modal {
+    width: auto !important;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .ant-modal {
+    max-height: 100vh !important;
+  }
+
+  .ant-modal-body {
+    max-height: calc(100vh - 160px) !important;
+    overflow-y: auto !important;
+  }
+
+  .preview-wrapper-modal .print-page {
+    max-height: none;
+  }
+
+  /* Preview wrapper responsive */
+  .preview-wrapper-modal .print-page {
+    transform: scale(0.4);
+    max-height: calc(100vh - 80px);
+    overflow: visible;
+    margin-top: 20px;
+  }
+
+  /* Info table responsive */
+  .info-table {
+    font-size: 12px;
+  }
+
+  .info-table .label {
+    width: 100px;
+  }
+
+  /* Section table responsive */
+  .section-table {
+    font-size: 12px;
+  }
+
+  .section-table th {
+    width: 100px;
+    font-size: 11px;
+  }
+
+  /* Rating grid responsive */
+  .rating-grid {
+    grid-template-columns: repeat(6, 1fr);
+    font-size: 11px;
+  }
+
+  .rating-cell {
+    padding: 6px 2px;
+  }
+
+  /* List item responsive */
+  .ant-list-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .ant-list-item-action {
+    margin-top: 8px;
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  .ant-list-item-action>li {
+    padding: 0 4px;
+  }
+
+  /* History list item content responsive */
+  .history-list-item>div {
+    width: 100%;
+  }
+
+  /* Checkbox wrapper responsive */
+  .ant-checkbox-wrapper {
+    font-size: 13px;
+  }
+
+  /* Progress modal responsive */
+  .ant-progress-text {
+    font-size: 12px;
+  }
+
+  /* Tag responsive */
+  .ant-tag {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+
+  /* Typography responsive */
+  .ant-typography {
+    font-size: 13px;
+  }
+
+
+  /* History list actions responsive */
+  .history-list-actions {
+    min-width: 50px !important;
+  }
+
+  .ant-space-horizontal>.ant-space-item {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  /* Input Search full width on mobile */
+  .ant-input-search {
+    min-width: 100%;
+  }
+
+  /* DatePicker Range full width */
+  .ant-picker-range {
+    width: 100% !important;
+    min-width: 100%;
+  }
+
+  /* Select full width */
+  .ant-select {
+    width: 100% !important;
+    min-width: 100%;
+  }
+
+  /* Checkbox wrapper responsive */
+  .ant-checkbox-wrapper+span {
+    font-size: 12px;
+  }
+}
+
+/* Custom Title Bar */
+.custom-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 16px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-bottom: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  -webkit-app-region: drag;
+  user-select: none;
+  flex-shrink: 0;
+  z-index: 1000;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.title-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  -webkit-app-region: no-drag;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.title-bar-left .logo {
+  height: 40px;
+  width: auto;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.title-bar-left .company-info {
+  color: #666;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.title-bar-right {
+  display: flex;
+  align-items: center;
+  /* gap: 12px; */
+  flex-wrap: nowrap;
+  -webkit-app-region: no-drag;
+  flex: 1;
+  justify-content: flex-end;
+  min-width: 0;
+  margin-left: auto;
+}
+
+/* Window Controls */
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  -webkit-app-region: no-drag;
+  flex-shrink: 0;
+  margin-left: 16px;
+  height: 28px;
+  border-left: 1px solid #e8e8e8;
+  /* border-bottom: 1px solid #e8e8e8; */
+  padding-left: 8px;
+}
+
+.window-control-btn {
+  width: 36px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  -webkit-app-region: no-drag;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.window-control-btn:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background: #e8e8e8;
+}
+
+.window-control-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+.window-control-btn:active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.window-control-btn.close-btn:hover {
+  background: #e81123;
+  color: #fff;
+}
+
+.window-control-btn.close-btn:active {
+  background: #c50e1f;
+}
+
+.window-control-btn svg {
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+/* Windows 11 style - rounded buttons on hover */
+@media (min-width: 769px) {
+  .window-control-btn {
+    border-radius: 0;
+  }
+
+  .window-control-btn:hover {
+    border-radius: 0;
+  }
+
+  .window-control-btn.close-btn:hover {
+    border-radius: 0;
+  }
+}
+
+/* User Dropdown Trigger */
+.user-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  flex-shrink: 0;
+  /* margin-right: auto; */
+  height: 32px;
+  box-sizing: border-box;
+}
+
+.user-dropdown-trigger:hover {
+  background: rgba(237, 50, 55, 0.08);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  flex: 1;
+}
+
+.user-greeting-name {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.user-name-inline {
+  font-weight: 600;
+  color: #333;
+}
+
+.user-dropdown-arrow {
+  font-size: 10px;
+  color: #999;
+  transition: transform 0.3s ease;
+  margin-left: 4px;
+}
+
+.user-dropdown-trigger:hover .user-dropdown-arrow {
+  color: #ed3237;
+}
+
+/* User Popover Content */
+.user-popover-content {
+  min-width: 200px;
+  padding: 0;
+}
+
+.user-popover-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.user-popover-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.user-popover-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-popover-role {
+  font-size: 10px;
+  color: #ed3237;
+  font-weight: 500;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-popover-username {
+  font-size: 10px;
+  color: #999;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-popover-logout-btn {
+  margin: 0;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  font-weight: 500;
+  border-top: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+
+.user-popover-logout-btn:hover {
+  background: #fff1f0;
+}
+
+/* Popover Overlay */
+.user-popover-overlay .ant-popover-inner {
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e8e8e8;
+  padding: 0;
+  overflow: hidden;
+}
+
+.user-popover-overlay .ant-popover-inner-content {
+  padding: 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .custom-title-bar {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .title-bar-left {
+    flex: 1 1 100%;
+    margin-bottom: 8px;
+  }
+
+  .title-bar-right {
+    flex: 1 1 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-title-bar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .title-bar-left {
+    flex: 1 1 100%;
+    margin-bottom: 8px;
+  }
+
+  .title-bar-left .logo {
+    height: 32px;
+  }
+
+  .title-bar-left .company-info {
+    font-size: 11px;
+    display: none;
+  }
+
+  .title-bar-right {
+    flex: 1 1 100%;
+    justify-content: flex-end;
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .user-dropdown-trigger {
+    padding: 4px 8px;
+  }
+
+  .user-popover-content {
+    min-width: 200px;
+  }
+
+  /* Header section responsive */
+  .ant-typography-title {
+    margin-bottom: 12px !important;
+  }
+
+  /* List pagination responsive */
+  .ant-pagination {
+    margin: 12px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .ant-pagination-total-text {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #595959;
+    order: -1;
+    margin-bottom: 4px;
+  }
+
+  .ant-pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .ant-pagination-item,
+  .ant-pagination-prev,
+  .ant-pagination-next,
+  .ant-pagination-jump-prev,
+  .ant-pagination-jump-next {
+    min-width: 28px;
+    height: 28px;
+    line-height: 26px;
+    font-size: 12px;
+  }
+
+  .ant-pagination-prev,
+  .ant-pagination-next,
+  .ant-pagination-jump-prev,
+  .ant-pagination-jump-next {
+    margin: 0;
+  }
+
+  .ant-pagination-item-ellipsis {
+    min-width: 24px;
+  }
+
+  /* Form responsive spacing */
+  .ant-form-vertical .ant-form-item-label {
+    padding-bottom: 4px;
+  }
+
+  /* Drawer form responsive */
+  .ant-drawer-body {
+    padding: 16px;
+  }
+
+  /* Modal footer responsive */
+  .ant-modal-footer {
+    padding: 10px 16px;
+  }
+
+  /* Tabs extra content - always align right */
+  .ant-tabs-extra-content {
+    margin-left: auto !important;
+    margin-top: 0;
+    width: auto;
+  }
+
+  .ant-tabs-extra-content .ant-space {
+    width: auto;
+    justify-content: flex-end;
+  }
+
+  /* Search and button containers - align buttons to right */
+  .ant-input-search-wrapper {
+    margin-right: auto;
+  }
+
+  /* Header logo and user info responsive */
+  .ant-layout-header,
+  header {
+    flex-wrap: wrap;
+    padding: 8px 12px;
+  }
+
+  /* List item actions responsive */
+  .ant-list-item-action {
+    flex-wrap: wrap;
+  }
+
+  /* Progress modal content responsive */
+  .ant-progress-outer {
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  /* Tag in list responsive */
+  .ant-list-item-extra {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+@media print {
+
+  /* Reset body và html */
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow: visible;
+    font-family: var(--font-main) !important;
+  }
+
+  /* Áp dụng font cho tất cả phần tử khi in */
+  * {
+    font-family: var(--font-main) !important;
+  }
+
+  /* Ẩn tất cả trừ print-container */
+  body>*:not(.print-container) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Hiển thị print-container */
+  .print-container {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Đảm bảo print-page có đúng kích thước A4 */
+  .print-page {
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    border: none !important;
+    width: var(--page-width) !important;
+    min-height: var(--page-height) !important;
+    max-width: var(--page-width) !important;
+    max-height: var(--page-height) !important;
+    padding: var(--page-padding) !important;
+    padding-bottom: var(--page-padding) !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    background: #fff !important;
+    color: #000 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    font-family: var(--font-main) !important;
+  }
+
+  .print-page,
+  .print-page *,
+  .print-page *::before,
+  .print-page *::after {
+    font-family: var(--font-main) !important;
+  }
+
+  /* Đảm bảo tất cả text elements dùng font Be Vietnam Pro */
+  .print-page p,
+  .print-page span,
+  .print-page div,
+  .print-page td,
+  .print-page th,
+  .print-page table,
+  .print-page input,
+  .print-page textarea {
+    font-family: var(--font-main) !important;
+  }
+
+  /* Header khi in */
+  .print-page .header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .print-page .logo {
+    height: 42px !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-user-drag: none !important;
+    pointer-events: none !important;
+  }
+
+  .print-page .header-company {
+    flex: 1 !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    min-width: 0 !important;
+    padding: 0 12px !important;
+    max-width: 100% !important;
+  }
+
+  .print-page .header-company .company-name-main {
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    margin-bottom: 3px !important;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+    text-align: justify !important;
+    text-align-last: center !important;
+    letter-spacing: 0.1px !important;
+    width: 100% !important;
+  }
+
+  .print-page .header-company .company-name-sub {
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    color: #333 !important;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+    text-align: justify !important;
+    text-align-last: center !important;
+    width: 100% !important;
+  }
+
+  /* Font-size 13px cho tất cả khi in */
+  .print-page .title {
+    font-size: 26px !important;
+    margin: 4px 0 6px !important;
+    letter-spacing: 0.4px !important;
+  }
+
+  .print-page .subtitle {
+    text-align: center !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 6px !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+  }
+
+  .print-page .subtitle .company-info {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    color: #333 !important;
+  }
+
+  .print-page .subtitle .company-info>div {
+    margin-bottom: 2px !important;
+  }
+
+  .print-page .info-table {
+    font-size: 13px !important;
+    table-layout: auto !important;
+    width: 100% !important;
+  }
+
+  .print-page .info-table td {
+    padding: 9px 11px !important;
+    text-indent: 0 !important;
+    vertical-align: top !important;
+  }
+
+  .print-page .info-table .label {
+    white-space: nowrap !important;
+    padding-right: 4px !important;
+    width: 140px !important;
+    vertical-align: top !important;
+  }
+
+  .print-page .info-table td:not(.label) {
+    word-break: break-word !important;
+    white-space: normal !important;
+    text-align: left !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Các trường dài chiếm toàn bộ chiều rộng khi in */
+  .print-page .info-table td[colspan="3"] {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Đảm bảo "Người thực hiện" và "Người liên hệ" chia đôi khi in */
+  .print-page .info-table tr td:nth-child(1).label+td:not(.label) {
+    width: calc(50% - 70px) !important;
+    padding-right: 20px !important;
+  }
+
+  .print-page .info-table tr td:nth-child(3).label {
+    width: 140px !important;
+  }
+
+  .print-page .info-table tr td:nth-child(4):not(.label) {
+    width: calc(50% - 70px) !important;
+  }
+
+  .print-page .section-title {
+    font-size: 13px !important;
+    margin: 8px 0 4px !important;
+  }
+
+  .print-page .section-table {
+    font-size: 13px !important;
+  }
+
+  .print-page .section-table td,
+  .print-page .section-table th {
+    padding: 8px !important;
+    font-size: 13px !important;
+    text-indent: 0 !important;
+    text-align: left !important;
+  }
+
+  .print-page .section-table th {
+    white-space: nowrap !important;
+    padding-right: 10px !important;
+  }
+
+  .print-page .section-table td {
+    word-break: break-word !important;
+    white-space: pre-wrap !important;
+    line-height: 1.4 !important;
+    padding-left: 10px !important;
+    text-align: left !important;
+  }
+
+  .print-page .rating-row {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    margin-top: 16px !important;
+  }
+
+  .print-page .rating-cell {
+    padding: 6px 0 !important;
+    font-size: 13px !important;
+  }
+
+  /* Signature nằm ngay dưới thang nhận xét */
+  .print-page .signature {
+    margin-top: 20px !important;
+    padding-top: 0 !important;
+    padding-bottom: 15px !important;
+    min-height: 140px !important;
+    font-size: 13px !important;
+    width: 100% !important;
+    line-height: 1.4 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    text-align: center !important;
+    align-items: flex-start !important;
+  }
+
+  .print-page .signature>div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    min-height: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  .print-page .signature .muted {
+    font-size: 13px !important;
+    margin-top: 4px !important;
+    display: block !important;
+    line-height: 1.2 !important;
+    font-style: italic !important;
+    visibility: visible !important;
+    color: #666 !important;
+  }
+
+  /* Đảm bảo nội dung chính không bị đẩy quá xuống */
+  .print-page>*:not(.signature):not(.footer-date) {
+    flex-shrink: 0;
+  }
+
+  .print-page .footer-date {
+    position: absolute !important;
+    bottom: 10mm !important;
+    right: 12mm !important;
+    font-size: 12px !important;
+    color: #666 !important;
+    text-align: right !important;
+  }
+
+  /* Ẩn tất cả các phần tử không cần in */
+  #root,
+  .layout,
+  .panel,
+  .form-panel,
+  .ant-modal,
+  .ant-drawer,
+  .ant-tabs,
+  .ant-list,
+  .ant-table,
+  .preview-wrapper,
+  .preview-wrapper-modal,
+  .ant-spin,
+  .ant-message {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Cấu hình trang in A4 */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* Đảm bảo không có break page không mong muốn */
+  .print-page * {
+    page-break-inside: avoid;
+  }
+}
+
+/* Truncate text in customer select dropdown and input */
+.customer-select-truncate .ant-select-selector {
+  overflow: hidden !important;
+}
+
+.customer-select-truncate .ant-select-selector .ant-select-selection-item {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  display: block !important;
+  max-width: calc(100% - 24px) !important;
+}
