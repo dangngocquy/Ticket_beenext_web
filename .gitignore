@@ -32,3 +32,6 @@ nginx/
 # YAML files
 *.yml
 *.yaml
+
+# Frontend build
+frontend/build/
