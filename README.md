@@ -2,6 +2,10 @@
 
 ## Mô tả
 Ứng dụng web đơn giản để quản lý ticket và in phiếu hỗ trợ kỹ thuật.
+Các chức năng:
+Quản lý khách hàng, liên hệ, quản lý tài khoản, phân quyền, chức năng thống báo
+Hệ thống quản lý quy trình sự cố (Nội bộ)
+các dữ liệu giao tiếp real-time
 
 ## Cài đặt
 1. Sao chép repository.
